@@ -2,11 +2,12 @@
 
 buildscript {
     repositories {
+        maven { url 'http://192.168.0.111:8082/artifactory/android_group/' }
         jcenter()
         mavenCentral()
     }
     dependencies {
-	    classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.android.tools.build:gradle:4.1.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -14,8 +15,8 @@ buildscript {
 
 ext{
 
-    compileSdkVersion = 24
-    buildToolsVersion = '23.0.3'
+    compileSdkVersion = 30
+    buildToolsVersion = '30.0.2'
 
 
     group = 'org.eclipse.paho'
@@ -34,33 +35,14 @@ ext{
 
 }
 
-def getSdkDirFromLocalProperties() {
-    def rootDir = project.rootDir
-    def localProperties = new File(rootDir, "local.properties")
-    Properties properties = new Properties()
-    localProperties.withInputStream { instr ->
-        properties.load(instr)
-    }
-    properties.getProperty('sdk.dir')
-}
-
-
-def androidHome = System.env['ANDROID_HOME']
-
-def androidHomeIsDefined = androidHome?.trim()
-
-def sdkDir = androidHomeIsDefined ? androidHome : getSdkDirFromLocalProperties()
-
-println "SDK dir: $sdkDir"
 
 
 allprojects {
 
     repositories {
+        maven { url 'http://192.168.0.111:8082/artifactory/android_group/' }
         jcenter()
-        maven {
-            url "file://$sdkDir/extras/android/m2repository/"
-        }
+
     }
 
     version = rootProject.ext.serviceVersion

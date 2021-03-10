@@ -10,13 +10,14 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+
+import androidx.appcompat.app.AlertDialog;
 
 import org.eclipse.paho.android.sample.R;
 
@@ -52,7 +53,7 @@ public class TextSelectComponent extends RelativeLayout {
         this.subLabel.setText(attributeArray.getString(R.styleable.TextSelectComponent_default_value));
         this.inputTitle = attributeArray.getString(R.styleable.TextSelectComponent_input_title);
         setText = attributeArray.getString(R.styleable.TextSelectComponent_default_value);
-        this.numberInput = attributeArray.getBoolean(R.styleable.TextSelectComponent_number, false);
+        this.numberInput = attributeArray.getBoolean(R.styleable.TextSelectComponent_number1, false);
         textSelectLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
