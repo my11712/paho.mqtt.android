@@ -2,7 +2,9 @@
 
 buildscript {
     repositories {
-        maven { url 'http://192.168.0.111:8082/artifactory/android_group/' }
+//        maven { url 'http://192.168.0.111:8082/artifactory/android_group/' }
+                maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
         jcenter()
         mavenCentral()
     }
@@ -40,7 +42,10 @@ ext{
 allprojects {
 
     repositories {
-        maven { url 'http://192.168.0.111:8082/artifactory/android_group/' }
+        maven { url "https://jitpack.io" }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+//        maven { url 'http://192.168.0.111:8082/artifactory/android_group/' }
         jcenter()
 
     }
